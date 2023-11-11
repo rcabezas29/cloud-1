@@ -1,0 +1,9 @@
+---
+
+- name: Build Wordpress image
+  docker_image:
+    name: wordpress_rcabezas
+    build:
+      path: /home/rcabezas/inception/requirements/wordpress
+    source: build
+  

@@ -1,0 +1,16 @@
+---
+
+- name: Create database folder
+  file:
+    path: /home/rcabezas/data/db
+    state: directory
+
+- name: Create wordpress folder
+  file:
+    path: /home/rcabezas/data/wordpress
+    state: directory
+
+- name: Copy inception folder
+  copy:
+    src: ../files
+    dest: /home/rcabezas

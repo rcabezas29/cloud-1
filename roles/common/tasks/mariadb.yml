@@ -1,0 +1,8 @@
+---
+
+- name: Build MariaDB image
+  docker_image:
+    name: mariadb_rcabezas
+    build:
+      path: /home/rcabezas/inception/requirements/mariadb
+    source: build

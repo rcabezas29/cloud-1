@@ -1,0 +1,8 @@
+---
+
+- name: Build NGINX image
+  docker_image:
+    name: nginx_rcabezas
+    build:
+      path: /home/rcabezas/inception/requirements/nginx
+    source: build

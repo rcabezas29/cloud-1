@@ -1,0 +1,17 @@
+---
+
+- name: Install Python
+  raw: test -e /usr/bin/python || (apt -y update && apt install -y python3)
+
+- name: Install Docker
+  raw: test -e /snap/bin/docker || (snap install docker)
+
+- import_tasks: setup.yml
+- import_tasks: mariadb.yml
+- import_tasks: wordpress.yml
+- import_tasks: nginx.yml
+
+- name: Run docker-compose
+  command: docker-compose up -d
+  args:
+    chdir: /home/rcabezas/inception/
