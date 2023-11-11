@@ -1,5 +1,12 @@
 ---
 
+- name: Add the user 'rcabezas'
+  ansible.builtin.user:
+    name: rcabezas
+    shell: /bin/bash
+    groups: sudo
+    append: yes
+
 - name: Create database folder
   file:
     path: /home/rcabezas/data/db
@@ -12,5 +19,5 @@
 
 - name: Copy inception folder
   copy:
-    src: ../files
+    src: ../files/inception
     dest: /home/rcabezas
