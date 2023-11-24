@@ -1,10 +1,13 @@
 ---
 
 - name: Install Python
-  raw: test -e /usr/bin/python || (apt -y update && apt install -y python3)
+  ansible.builtin.apt:
+    name: python3
+    state: present
 
 - name: Install Docker
-  raw: test -e /snap/bin/docker || (snap install docker)
+  community.general.snap:
+    name: docker
 
 - import_tasks: setup.yml
 - import_tasks: mariadb.yml
