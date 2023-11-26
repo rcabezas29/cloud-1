@@ -1,20 +1,12 @@
 ---
 
-- name: Install Python
-  ansible.builtin.apt:
-    name: python3
-    state: present
-
-- name: Install Docker
-  community.general.snap:
-    name: docker
-
+- import_tasks: dependencies.yml
 - import_tasks: setup.yml
 - import_tasks: mariadb.yml
 - import_tasks: wordpress.yml
 - import_tasks: nginx.yml
 
 - name: Run docker-compose
-  command: docker-compose up -d
+  command: docker compose up -d
   args:
     chdir: /home/rcabezas/inception/
