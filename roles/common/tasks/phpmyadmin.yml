@@ -1,0 +1,8 @@
+---
+
+- name: Build PHPMyAdmin image
+  docker_image:
+    name: phpmyadmin_rcabezas
+    build:
+      path: /home/rcabezas/inception/requirements/phpmyadmin
+    source: build
